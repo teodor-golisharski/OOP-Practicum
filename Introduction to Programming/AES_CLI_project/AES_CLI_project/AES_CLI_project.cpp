@@ -24,14 +24,43 @@ int main()
 
 	string code;
 	getline(cin, code);
-	
+
 	if (code == "01") {
 		string fileAddress;
+
+		cout << "File address: ";
 		cin >> fileAddress;
 
 		string readedText = "";
+		string line = "";
 
-		ifstream
+		ifstream file;
+		file.open(fileAddress);
+
+		while (true)
+		{
+			if (file.is_open()) {
+				cout << "File has been opened successfuly!" << endl;
+				break;
+			}
+			else {
+				cout << "File has NOT been opened! Try again!" << endl;
+				cout << "File address: ";
+				cin >> fileAddress;
+				file.open(fileAddress);
+			}
+		}
+
+
+		if (file.is_open()) {
+			while (file.good()) {
+				line = "";
+				getline(file, line);
+				readedText += line + "\n";
+			}
+		}
+
+		cout << readedText << endl;
 	}
 }
 
