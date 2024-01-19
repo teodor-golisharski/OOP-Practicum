@@ -1,3 +1,19 @@
+/**
+*
+* Solution to course project # 10
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Теодор Голишарски
+* @idnumber 6MI0600367
+* @compiler VC
+*
+* AES CLI Project
+*
+*/
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,12 +26,16 @@ void instructions() {
 	cout << "-------------------------------------------" << endl;
 	cout << "Available codes:" << endl;
 	cout << " | 01 - read text from file" << endl;
-	cout << " | 02 - crypt text with AES" << endl;
+	cout << " | 02 - encrypt text with AES" << endl;
 	cout << " | 03 - decrypt text" << endl;
-	cout << " | 04 - save crypted text" << endl;
+	cout << " | 04 - save encrypted text" << endl;
 	cout << " | 05 - save decrypted text" << endl;
 	cout << " | ++ - guide" << endl;
 	cout << "-------------------------------------------" << endl;
+}
+
+string cryptText(string plainText, string key) {
+
 }
 
 int main()
@@ -59,8 +79,7 @@ int main()
 				readedText += line + "\n";
 			}
 		}
-
-		cout << readedText << endl;
+		file.close();		
 	}
 }
 
