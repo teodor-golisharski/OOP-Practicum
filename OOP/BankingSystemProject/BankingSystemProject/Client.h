@@ -18,7 +18,7 @@ public:
 	Client(const Client& other);
 	Client(Client&& other);
 
-	~Client();
+	virtual ~Client();
 
 	double check_avl(const char* bank_name, unsigned account_number);
 	void open(const char* bank_name);
