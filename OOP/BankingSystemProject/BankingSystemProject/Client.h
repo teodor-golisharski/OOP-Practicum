@@ -14,7 +14,7 @@ private:
 
 public:
 	Client();
-	Client(const char* name, const char* egn, unsigned age);
+	Client(const char* name, const char* egn, unsigned age, const char* password);
 	Client(const Client& other);
 	Client(Client&& other);
 

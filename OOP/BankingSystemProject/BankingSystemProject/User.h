@@ -5,6 +5,7 @@ private:
 	char* name;
 	char egn[10];
 	unsigned age;
+	char* password;
 
 public:
 	void exit(User* currentUser);
