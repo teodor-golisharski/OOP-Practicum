@@ -28,7 +28,7 @@ Message::Message(const Message& other) {
 	copyFrom(other);
 }
 
-Message::Message(Message&& other) {
+Message::Message(Message&& other) noexcept {
 	moveFrom(std::move(other));
 }
 

@@ -13,10 +13,10 @@ public:
 	Message(const char* message);
 
 	Message(const Message& other);
-	Message(Message&& other);
+	Message(Message&& other) noexcept;
 
 	Message& operator=(const Message& other);
-	Message& operator=(Message&& other);
+	Message& operator=(Message&& other) noexcept;
 
 	~Message();
 };
