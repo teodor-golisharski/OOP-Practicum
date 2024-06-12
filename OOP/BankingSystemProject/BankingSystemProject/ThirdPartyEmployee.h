@@ -7,7 +7,7 @@ public:
 	ThirdPartyEmployee(const char* name, const char* egn, unsigned age, const char* password);
 	
 
-	void send_check(double sum, const char* bank_name, const char egn[EGN_MAX_LENGTH]);
+	void send_check(double sum, const char* bank_name, const char egn[EGN_LENGTH]);
 	
 	virtual ~ThirdPartyEmployee();
 };

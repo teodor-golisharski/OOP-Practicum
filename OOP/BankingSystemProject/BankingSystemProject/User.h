@@ -4,7 +4,7 @@
 class User {
 private:
 	char* name;
-	char egn[EGN_LENGTH];
+	char egn[EGN_LENGTH+1];
 	unsigned age;
 	char* password;
 

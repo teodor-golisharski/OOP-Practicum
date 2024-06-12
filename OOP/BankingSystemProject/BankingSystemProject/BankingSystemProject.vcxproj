@@ -128,18 +128,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
+    <ClCompile Include="Bank.cpp" />
     <ClCompile Include="BankingSystemProject.cpp" />
     <ClCompile Include="Check.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="ThirdPartyEmployee.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />
+    <ClInclude Include="Bank.h" />
     <ClInclude Include="Check.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="Employee.h" />
     <ClInclude Include="GlobalConstants.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="Task.h" />
     <ClInclude Include="ThirdPartyEmployee.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

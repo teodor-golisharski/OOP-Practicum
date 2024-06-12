@@ -1,12 +1,15 @@
 #include "Account.h"
+#include <iostream>
 
 Account::Account() = default;
 
-Account::Account(unsigned number, double balance)
-	: account_number(number), balance(balance)
-{}
+Account::Account(char number[ACCOUNT_NUMBER_LENGTH + 1], double balance)
+	: balance(balance)
+{
+	strcpy_s(this->account_number, ACCOUNT_NUMBER_LENGTH + 1, number);
+}
 
-unsigned Account::get_account_number() const {
+const char* Account::get_account_number() const {
 	return this->account_number;
 }
 

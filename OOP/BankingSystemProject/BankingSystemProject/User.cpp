@@ -95,7 +95,7 @@ User& User::operator=(const User& other) {
 	}
 	return *this;
 }
-User& User::operator=(User&& other) {
+User& User::operator=(User&& other) noexcept {
 	if (this != &other) {
 		free();
 		moveFrom(std::move(other));
