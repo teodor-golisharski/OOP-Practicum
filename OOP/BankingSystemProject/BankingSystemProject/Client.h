@@ -6,14 +6,17 @@
 
 class Client : public User {
 private:
-	Message* messages;
-	Account* accounts;
+	Message* messages = nullptr;
+	Account* accounts = nullptr;
+
+	unsigned messagesCount = 0;
+	unsigned accountsCount = 0;
 
 	void free();
 	void moveFrom(Client&& other);
 	void copyFrom(const Client& other);
 
-	Account& find_account(const char* account_number);
+	Account& find_account(const char* account_number) const;
 public:
 	Client();
 	Client(const char* name, const char* egn, unsigned age, const char* password);
@@ -22,7 +25,7 @@ public:
 
 	virtual ~Client();
 
-	double check_avl(const char* bank_name, unsigned account_number);
+	double check_avl(const char* bank_name, unsigned account_number) const;
 	void open(const char* bank_name);
 	void close(const char* bank_name, unsigned account_number);
 	void redeem(const char* bank_name, unsigned account_number, const char* verification_code);
