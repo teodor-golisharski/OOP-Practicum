@@ -2,7 +2,7 @@
 
 ThirdPartyEmployee::ThirdPartyEmployee() = default;
 
-ThirdPartyEmployee::ThirdPartyEmployee(const char* name, const char* egn, unsigned age, const char* password) {
+ThirdPartyEmployee::ThirdPartyEmployee(const char* name, const char* egn, unsigned age, const char* password) : User(name, egn, age, password){
 	
 }
 
