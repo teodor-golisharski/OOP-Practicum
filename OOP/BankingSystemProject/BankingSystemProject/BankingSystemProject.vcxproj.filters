@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Repositories">
+      <UniqueIdentifier>{d79cad80-9c53-4ada-93b0-201823007977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BasicVector">
+      <UniqueIdentifier>{4e02b268-79af-492e-aadb-f124b43df8e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankingSystemProject.cpp">
@@ -37,6 +43,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BankRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,6 +82,15 @@
     </ClInclude>
     <ClInclude Include="Task.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BankRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicVector.hpp">
+      <Filter>BasicVector</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,6 +12,8 @@ public:
 	Message();
 	Message(const char* message);
 
+	const char* get_message() const;
+
 	Message(const Message& other);
 	Message(Message&& other) noexcept;
 

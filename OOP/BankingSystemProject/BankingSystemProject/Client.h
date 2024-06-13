@@ -12,6 +12,8 @@ private:
 	unsigned messagesCount = 0;
 	unsigned accountsCount = 0;
 
+	//Controller* controller;
+
 	void free();
 	void moveFrom(Client&& other);
 	void copyFrom(const Client& other);

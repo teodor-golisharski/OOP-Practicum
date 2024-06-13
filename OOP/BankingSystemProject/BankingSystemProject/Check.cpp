@@ -9,7 +9,7 @@ Check::Check(double sum) {
 
 	unsigned int seed = static_cast<unsigned int>(std::time(0));
 	for (short i = 0; i < 3; i++) {
-		id[i] = generate_random_char(seed);
+		//id[i] = generate_random_char(seed);
 	}
 	
 }

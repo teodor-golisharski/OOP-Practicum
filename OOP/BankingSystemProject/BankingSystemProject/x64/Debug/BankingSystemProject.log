@@ -1,0 +1,17 @@
+﻿  BankingSystemProject.cpp
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(104,12): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'BankingSystemProject.cpp')
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(104,12):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankingSystemProject.cpp(7,23):
+  	see reference to class template instantiation 'BasicVector<Message>' being compiled
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(103,47):
+  	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int)'
+          with
+          [
+              T=Message
+          ]
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankingSystemProject.cpp(12,41):
+  		see the first reference to 'BasicVector<Message>::operator []' in 'main'
+  
+  BankingSystemProject.vcxproj -> C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\x64\Debug\BankingSystemProject.exe

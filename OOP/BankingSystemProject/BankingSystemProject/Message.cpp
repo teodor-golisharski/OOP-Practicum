@@ -16,6 +16,10 @@ void Message::free() {
 	delete[] message;
 }
 
+const char* Message::get_message() const {
+	return this->message;
+}
+
 Message::Message() : Message("") {}
 
 Message::Message(const char* message) {

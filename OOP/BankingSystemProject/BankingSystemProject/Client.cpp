@@ -66,7 +66,7 @@ Client::~Client() {
 }
 
 double Client::check_avl(const char* bank_name, unsigned account_number) const{
-	Bank* temp_bank = contr
+	return 1;
 }
 
 
