@@ -9,9 +9,14 @@ private:
 	int capacity;
 	int current;
 
+	void copyFrom(const BasicVector& other);
+	void free();
+
 public:
 	BasicVector();
 	~BasicVector();
+	BasicVector(const BasicVector& other);
+	BasicVector& operator=(const BasicVector& other);
 
 	void push(T other);
 	void push(T other, unsigned index);
@@ -23,8 +28,12 @@ public:
 
 	T& operator[](unsigned index);
 	T operator[](unsigned index) const;
-};
 
+};
+template<class T>
+void BasicVector<T>::free() {
+	delete[] data;
+}
 
 template<class T>
 BasicVector<T>::BasicVector() {
@@ -33,9 +42,25 @@ BasicVector<T>::BasicVector() {
 	current = 0;
 }
 
-template<class T>
+template<typename T>
 BasicVector<T>::~BasicVector() {
-	delete[] data;
+	free();
+}
+
+template<typename T>
+BasicVector<T>::BasicVector(const BasicVector& other) {
+	copyFrom(other);
+}
+
+template<typename T>
+void BasicVector<T>::copyFrom(const BasicVector& other) {
+
+	data = new T[other.capacity];
+	for (int i = 0; i < other.current; i++) {
+		data[i] = other.data[i];
+	}
+	capacity = other.capacity;
+	current = other.current;
 }
 
 template<class T>
@@ -107,6 +132,14 @@ T BasicVector<T>::operator[](unsigned index) const {
 	return data[index];
 }
 
+template<class T>
+BasicVector<T>& BasicVector<T>::operator=(const BasicVector& other) {
+	if (this != &other) {
+		free();
+		copyFrom(other);
+	}
+	return *this;
+}
 
 
 

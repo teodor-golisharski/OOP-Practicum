@@ -12,6 +12,7 @@ private:
 	BasicVector<Check> checks;
 
 	void copyFrom(const Bank& other);
+	void free();
 
 public:
 	Bank();
@@ -23,7 +24,7 @@ public:
 	~Bank();
 
 	const char* get_bank_name() const;
-	Account& find_account(const char* account_number);
+	Account* find_account(const char* account_number);
 	void open_account(const User& client);
 	void close_account(const char* account_number);
 
