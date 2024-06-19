@@ -24,16 +24,16 @@ public:
 	BasicVector& operator=(BasicVector&& other) noexcept;
 
 	void push(T other);
-	void push(T other, unsigned index);
+	void insert(T other, unsigned index);
 
 	T& get(unsigned index) const;
 	void pop();
+	void delete_at(unsigned index);
 	int size() const;
 	int get_capacity() const;
 
 	T& operator[](unsigned index);
-	T operator[](unsigned index) const;
-
+	T& operator[](unsigned index) const;
 };
 
 template<class T>
@@ -87,6 +87,31 @@ void BasicVector<T>::copyFrom(const BasicVector& other) {
 }
 
 template<class T>
+void BasicVector<T>::delete_at(unsigned index) {
+	if (index >= current) {
+		throw std::out_of_range("Index out of range!");
+	}
+
+	for (unsigned i = index; i < current - 1; ++i) {
+		data[i] = std::move(data[i + 1]);
+	}
+
+	--current;
+
+	if (current < capacity / 4) {
+		capacity /= 2;
+		T* newData = new T[capacity];
+		
+		for (unsigned i = 0; i < current; ++i) {
+			newData[i] = std::move(data[i]);
+		}
+
+		delete[] data;
+		data = newData;
+	}
+}
+
+template<class T>
 void BasicVector<T>::push(T other) {
 	if (current == capacity) {
 		T* temp = new T[2 * capacity];
@@ -105,7 +130,7 @@ void BasicVector<T>::push(T other) {
 }
 
 template<class T>
-void BasicVector<T>::push(T other, unsigned index) {
+void BasicVector<T>::insert(T other, unsigned index) {
 	if (index == capacity) {
 		push(other);
 	}
@@ -148,7 +173,7 @@ T& BasicVector<T>::operator[](unsigned index) {
 }
 
 template<class T>
-T BasicVector<T>::operator[](unsigned index) const {
+T& BasicVector<T>::operator[](unsigned index) const {
 	if (index >= current) {
 		throw std::out_of_range("Index out of range!");
 	}

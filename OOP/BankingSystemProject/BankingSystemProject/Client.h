@@ -2,36 +2,36 @@
 #include "User.h"
 #include "Message.h"
 #include "Account.h"
-#include "Controller.h"
+#include "BasicVector.hpp"
+
+
+class Bank;
 
 class Client : public User {
 private:
-	Message* messages = nullptr;
-	Account* accounts = nullptr;
+	BasicVector<Message> messages;
+	BasicVector<Account> accounts;
 
-	unsigned messagesCount = 0;
-	unsigned accountsCount = 0;
+	unsigned find_account(const char* account_number) const;
 
-	Controller* controller;
+	//void add_account(const Account& account);
+	//void close_account(const char* accountNumber);
 
-	void free();
-	void moveFrom(Client&& other);
-	void copyFrom(const Client& other);
-
-	Account& find_account(const char* account_number) const;
+	friend class Bank;
 public:
 	Client();
 	Client(const char* name, const char* egn, unsigned age, const char* password);
-	Client(const Client& other);
-	Client(Client&& other);
 
 	virtual ~Client();
 
+	// bank repo
 	double check_avl(const char* bank_name, unsigned account_number) const;
-	void open(const char* bank_name);
-	void close(const char* bank_name, unsigned account_number);
-	void redeem(const char* bank_name, unsigned account_number, const char* verification_code);
-	void change(const char* new_bank_name, const char* current_bank_name, unsigned account_number);
-	void list(const char* bank_name) const;
-	void show_messages() const;
+
+	// 
+	//void redeem(const char* bank_name, unsigned account_number, const char* verification_code);
+	
+	
+	//void change(const char* new_bank_name, const char* current_bank_name, unsigned account_number);
+	//void list(const char* bank_name) const;
+	//void show_messages() const;
 };

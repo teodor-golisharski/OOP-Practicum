@@ -1,4 +1,5 @@
 #pragma once
+
 #include "GlobalConstants.h"
 
 class Account final {
@@ -15,7 +16,7 @@ private:
 
 public:
 	Account();
-	Account(char number[ACCOUNT_NUMBER_LENGTH + 1], char* bank_name, double balance);
+	Account(char* bank_name);
 
 	Account(const Account& other);
 	Account(Account&& other) noexcept;

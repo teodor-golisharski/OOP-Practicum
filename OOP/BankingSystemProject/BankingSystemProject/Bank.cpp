@@ -1,4 +1,5 @@
 #include "Bank.h"
+#include "Client.h"
 #include <iostream>
 
 void Bank::free() {
@@ -18,7 +19,7 @@ Bank::Bank(const char* name) {
 Bank::Bank(const Bank& other) {
 	copyFrom(other);
 }
-Bank::Bank(Bank&& other) {
+Bank::Bank(Bank&& other) noexcept {
 	moveFrom(std::move(other));
 }
 
@@ -28,15 +29,11 @@ void Bank::copyFrom(const Bank& other) {
 	strcpy_s(this->name, len, name);
 
 	this->accounts = other.accounts;
-	this->checks = other.checks;
-	this->employees = other.employees;
 }
 void Bank::moveFrom(Bank&& other) {
 
 	this->name = other.name;
 	this->accounts = std::move(other.accounts);
-	this->checks = std::move(other.checks);
-	this->employees = std::move(other.employees);
 
 	other.name = nullptr;
 }
@@ -60,22 +57,28 @@ Bank& Bank::operator=(const Bank& other) {
 const char* Bank::get_bank_name() const {
 	return this->name;
 }
-Account* Bank::find_account(const char* account_number) const{
+unsigned Bank::find_account(const char* account_number) const{
 	for (unsigned i = 0; i < accounts.size(); i++)
 	{
 		if (strcmp(accounts[i].get_account_number(), account_number) == 0) {
-			return &accounts[i];
+			return i;
 		}
 	}
-	return nullptr;
+	return -1;
 }
 
-void Bank::open_account(const User& client) {
-	Account account;
-
+void Bank::open_account(Client& client) {
+	Account account(this->name);
+	//client.add_account(account);
+	
+	this->accounts.push(account);
 }
 
-void Bank::close_account(const char* account_number) {
+void Bank::close_account(Client& client, const char* account_number) {
+	unsigned index = find_account(account_number);
+	this->accounts.delete_at(index);
 
+	index = client.find_account(account_number);
+	client.accounts.delete_at(index);	
 }
 

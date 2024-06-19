@@ -129,10 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="Bank.cpp" />
+    <ClCompile Include="BankingSystem.cpp" />
     <ClCompile Include="BankingSystemProject.cpp" />
-    <ClCompile Include="BankRepository.cpp" />
     <ClCompile Include="Check.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="ThirdPartyEmployee.cpp" />
@@ -141,7 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Account.h" />
     <ClInclude Include="Bank.h" />
-    <ClInclude Include="BankRepository.h" />
+    <ClInclude Include="BankingSystem.h" />
     <ClInclude Include="BasicVector.hpp" />
     <ClInclude Include="Check.h" />
     <ClInclude Include="Client.h" />
@@ -149,10 +150,10 @@
     <ClInclude Include="Employee.h" />
     <ClInclude Include="GlobalConstants.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="MyString.hpp" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="ThirdPartyEmployee.h" />
     <ClInclude Include="User.h" />
-    <ClInclude Include="UserRepository.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

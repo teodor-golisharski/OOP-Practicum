@@ -1,21 +1,23 @@
 #pragma once
-#include "BankRepository.h"
+#include "Bank.h"
 #include "User.h"
+#include "BasicVector.hpp"
 
-class Controller {
+
+class Controller final{
 private:
-	BankRepository banks;
-	User* users;
-	User* current_user;
+	BasicVector<Bank> banks;
+	BasicVector<User> users;
+	User* current_user = nullptr;
 
 public:
-	Controller();
+	/*Controller();
 
-	Bank& find_bank_by_name(const char* bank_name) const;
+	Bank& find_bank(const char* bank_name) const;
 	void add_bank(const Bank& bank);
 	
 	void exit();
 
 	
-	~Controller();
+	~Controller();*/
 };

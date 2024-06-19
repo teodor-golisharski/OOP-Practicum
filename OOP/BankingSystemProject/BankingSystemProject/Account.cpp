@@ -31,15 +31,17 @@ void Account::moveFrom(Account&& other) {
 	other.bank_name = nullptr;
 
 	balance = other.balance;
+	other.balance = 0;
 }
 
 void Account::free() {
 	delete[] bank_name;
+	bank_name = nullptr;
 }
 
 Account::Account() = default;
 
-Account::Account(char account_number[ACCOUNT_NUMBER_LENGTH + 1], char* bank_name, double balance) {
+Account::Account(char* bank_name) {
 
 	account_number[0] = 'B';
 	account_number[1] = 'G';
@@ -55,7 +57,7 @@ Account::Account(char account_number[ACCOUNT_NUMBER_LENGTH + 1], char* bank_name
 	size_t size = strlen(bank_name) + 1;
 	strcpy_s(this->bank_name, size, bank_name);
 
-	this->balance = balance;
+	this->balance = 0;
 }
 
 Account::Account(const Account& other) {
