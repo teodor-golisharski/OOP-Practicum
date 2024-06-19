@@ -14,6 +14,7 @@ void Message::moveFrom(Message&& other) {
 
 void Message::free() {
 	delete[] message;
+	message = nullptr;
 }
 
 const char* Message::get_message() const {

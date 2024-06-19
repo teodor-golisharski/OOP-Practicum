@@ -3,7 +3,10 @@
 
 void User::free() {
 	delete[] name;
+	name = nullptr;
+
 	delete[] password;
+	password = nullptr;
 }
 void User::copyFrom(const User& other) {
 	set_name(other.name);

@@ -3,18 +3,23 @@
 
 void Bank::free() {
 	delete[] name;
-
+	name = nullptr;
 }
 
 Bank::Bank() = default;
 Bank::~Bank() {
 	free();
 }
-
 Bank::Bank(const char* name) {
 	size_t len = strlen(name) + 1;
 	this->name = new char[len];
 	strcpy_s(this->name, len, name);
+}
+Bank::Bank(const Bank& other) {
+	copyFrom(other);
+}
+Bank::Bank(Bank&& other) {
+	moveFrom(std::move(other));
 }
 
 void Bank::copyFrom(const Bank& other) {
@@ -26,11 +31,24 @@ void Bank::copyFrom(const Bank& other) {
 	this->checks = other.checks;
 	this->employees = other.employees;
 }
+void Bank::moveFrom(Bank&& other) {
 
-Bank::Bank(const Bank& other) {
-	copyFrom(other);
+	this->name = other.name;
+	this->accounts = std::move(other.accounts);
+	this->checks = std::move(other.checks);
+	this->employees = std::move(other.employees);
+
+	other.name = nullptr;
 }
 
+
+Bank& Bank::operator=(Bank&& other) noexcept {
+	if (this != &other) {
+		free();
+		moveFrom(std::move(other));
+	}
+	return *this;
+}
 Bank& Bank::operator=(const Bank& other) {
 	if (this != &other) {
 		free();
@@ -42,9 +60,8 @@ Bank& Bank::operator=(const Bank& other) {
 const char* Bank::get_bank_name() const {
 	return this->name;
 }
-
-Account* Bank::find_account(const char* account_number) {
-	for (size_t i = 0; i < accounts.size(); i++)
+Account* Bank::find_account(const char* account_number) const{
+	for (unsigned i = 0; i < accounts.size(); i++)
 	{
 		if (strcmp(accounts[i].get_account_number(), account_number) == 0) {
 			return &accounts[i];
@@ -55,6 +72,7 @@ Account* Bank::find_account(const char* account_number) {
 
 void Bank::open_account(const User& client) {
 	Account account;
+
 }
 
 void Bank::close_account(const char* account_number) {

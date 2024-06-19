@@ -1,17 +1,51 @@
-﻿  BankingSystemProject.cpp
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(104,12): warning C4018: '>=': signed/unsigned mismatch
-  (compiling source file 'BankingSystemProject.cpp')
-  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(104,12):
+﻿  Account.cpp
+  Bank.cpp
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(59,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(143,12): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Bank.cpp')
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(143,12):
   the template instantiation context (the oldest one first) is
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankingSystemProject.cpp(7,23):
-  	see reference to class template instantiation 'BasicVector<Message>' being compiled
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(103,47):
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.h(10,23):
+  	see reference to class template instantiation 'BasicVector<Account>' being compiled
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(142,47):
   	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int)'
           with
           [
-              T=Message
+              T=Account
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankingSystemProject.cpp(12,41):
-  		see the first reference to 'BasicVector<Message>::operator []' in 'main'
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(61,3):
+  		see the first reference to 'BasicVector<Account>::operator []' in 'Bank::find_account'
   
-  BankingSystemProject.vcxproj -> C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\x64\Debug\BankingSystemProject.exe
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(57,1): error C2092: 'Target of operator new()' array element type cannot be function or abstract class type
+  (compiling source file 'Bank.cpp')
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(57,1):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.h(11,24):
+  	see reference to class template instantiation 'BasicVector<Employee>' being compiled
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(56,31):
+  	while compiling class template member function 'BasicVector<Employee>::BasicVector(void)'
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(9,7):
+  		see the first reference to 'BasicVector<Employee>::BasicVector' in 'Bank::Bank'
+  
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(57,9): error C2259: 'Employee': cannot instantiate abstract class
+  (compiling source file 'Bank.cpp')
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.h(5,7):
+  see declaration of 'Employee'
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(57,9):
+  due to following members:
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(57,9):
+  'void User::help(void) const': is abstract
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\User.h(27,15):
+  see declaration of 'User::help'
+  
+  BankingSystemProject.cpp
+  BankRepository.cpp
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankRepository.cpp(11,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankRepository.cpp(14,19): error C2102: '&' requires l-value
+  Check.cpp
+  Client.cpp
+  Message.cpp
+  Task.cpp
+  ThirdPartyEmployee.cpp
+  User.cpp
+  Generating Code...

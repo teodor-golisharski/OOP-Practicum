@@ -8,7 +8,7 @@ BankRepository::BankRepository(const BankRepository& bank_repo) {
 }
 
 Bank* BankRepository::find_bank(const char* name) const {
-	for (size_t i = 0; i < banks.size(); i++)
+	for (unsigned i = 0; i < banks.size(); i++)
 	{
 		if (banks[i].get_bank_name() == name) {
 			return &banks[i];

@@ -13,6 +13,5 @@ public:
 	Bank* find_bank(const char* bank_name) const;
 	void add_bank(Bank& bank);
 
-
 	~BankRepository();
 };
