@@ -1,78 +1,81 @@
 #pragma once
 #include <iostream>
+#include <cstring>
+#include <stdexcept>
 
 class MyString
 {
-	char* data;
-	size_t len;
+    char* data;
+    size_t len;
 
-	void copyFrom(const MyString& data);
-	void free();
+    void copyFrom(const MyString& other);
+    void free();
 
-	explicit MyString(size_t capacity); 
+    explicit MyString(size_t capacity);
 public:
 
-	MyString();
-	MyString(const char* data);
-	MyString(const MyString& other);
-	MyString& operator=(const MyString& other);
-	~MyString();
+    MyString();
+    MyString(const char* data);
+    MyString(const MyString& other);
+    MyString& operator=(const MyString& other);
+    ~MyString();
 
-	MyString(MyString&& other) noexcept;
-	MyString& operator=(MyString&& other) noexcept;
+    MyString(MyString&& other) noexcept;
+    MyString& operator=(MyString&& other) noexcept;
 
-	size_t length() const;
-	MyString& operator+=(const MyString& other);
+    size_t length() const;
+    MyString& operator+=(const MyString& other);
 
-	MyString substr(size_t begin, size_t howMany) const;
+    MyString substr(size_t begin, size_t howMany) const;
 
-	char& operator[](size_t index);
-	char operator[](size_t index) const;
+    char& operator[](size_t index);
+    char operator[](size_t index) const;
 
-	const char* c_str() const;
+    const char* c_str() const;
 
-	friend MyString operator+(const MyString& lhs, const MyString& rhs);
-	friend std::istream& operator>>(std::istream&, MyString& str);
+    friend inline MyString operator+(const MyString& lhs, const MyString& rhs);
+    friend inline std::istream& operator>>(std::istream&, MyString& str);
+    friend inline std::ostream& operator<<(std::ostream& os, const MyString& str);
+            
+    friend inline bool operator<(const MyString& lhs, const MyString& rhs);
+    friend inline bool operator<=(const MyString& lhs, const MyString& rhs);
+    friend inline bool operator>=(const MyString& lhs, const MyString& rhs);
+    friend inline bool operator>(const MyString& lhs, const MyString& rhs);
+    friend inline bool operator==(const MyString& lhs, const MyString& rhs);
+    friend inline bool operator!=(const MyString& lhs, const MyString& rhs);
 };
 
-std::ostream& operator<<(std::ostream& os, const MyString& str);
-
-bool operator<(const MyString& lhs, const MyString& rhs);
-bool operator<=(const MyString& lhs, const MyString& rhs);
-bool operator>=(const MyString& lhs, const MyString& rhs);
-bool operator>(const MyString& lhs, const MyString& rhs);
-bool operator==(const MyString& lhs, const MyString& rhs);
-bool operator!=(const MyString& lhs, const MyString& rhs);
 
 
-void MyString::copyFrom(const MyString& other) {
+
+inline void MyString::copyFrom(const MyString& other) {
     len = other.len;
     data = new char[len + 1];
-    std::strcpy(data, other.data);
+    strcpy_s(data, len + 1, other.data);
 }
 
-void MyString::free() {
+inline void MyString::free() {
     delete[] data;
 }
 
-MyString::MyString() : MyString(1) {
+inline MyString::MyString() : MyString(1) {
     data[0] = '\0';
 }
 
-MyString::MyString(size_t capacity) {
+inline MyString::MyString(size_t capacity) {
     len = capacity - 1;
     data = new char[capacity];
 }
 
-MyString::MyString(const char* str) : MyString(std::strlen(str) + 1) {
-    std::strcpy(data, str);
+inline MyString::MyString(const char* str) : MyString(std::strlen(str) + 1) {
+    strcpy_s(data, len + 1, str);
 }
 
-MyString::MyString(const MyString& other) {
+inline MyString::MyString(const MyString& other) {
     copyFrom(other);
 }
 
-MyString& MyString::operator=(const MyString& other) {
+inline MyString& MyString::operator=(const MyString& other) {
     if (this != &other) {
         free();
         copyFrom(other);
@@ -80,18 +83,18 @@ MyString& MyString::operator=(const MyString& other) {
     return *this;
 }
 
-MyString::~MyString() {
+inline MyString::~MyString() {
     free();
 }
 
-MyString::MyString(MyString&& other) noexcept {
+inline MyString::MyString(MyString&& other) noexcept {
     data = other.data;
     len = other.len;
     other.data = nullptr;
     other.len = 0;
 }
 
-MyString& MyString::operator=(MyString&& other) noexcept {
+inline MyString& MyString::operator=(MyString&& other) noexcept {
     if (this != &other) {
         free();
         data = other.data;
@@ -102,22 +105,22 @@ MyString& MyString::operator=(MyString&& other) noexcept {
     return *this;
 }
 
-size_t MyString::length() const {
+inline size_t MyString::length() const {
     return len;
 }
 
-MyString& MyString::operator+=(const MyString& other) {
+inline MyString& MyString::operator+=(const MyString& other) {
     size_t newLength = len + other.len;
     char* newData = new char[newLength + 1];
-    std::strcpy(newData, data);
-    std::strcat(newData, other.data);
+    strcpy_s(newData, newLength + 1, data);
+    strcat_s(newData, newLength + 1, other.data);
     delete[] data;
     data = newData;
     len = newLength;
     return *this;
 }
 
-MyString MyString::substr(size_t begin, size_t howMany) const {
+inline MyString MyString::substr(size_t begin, size_t howMany) const {
     if (begin + howMany > len)
         throw std::out_of_range("Substr out of range");
 
@@ -128,64 +131,64 @@ MyString MyString::substr(size_t begin, size_t howMany) const {
     return result;
 }
 
-char& MyString::operator[](size_t index) {
+inline char& MyString::operator[](size_t index) {
     if (index >= len)
         throw std::out_of_range("Index out of range");
     return data[index];
 }
 
-char MyString::operator[](size_t index) const {
+inline char MyString::operator[](size_t index) const {
     if (index >= len)
         throw std::out_of_range("Index out of range");
     return data[index];
 }
 
-const char* MyString::c_str() const {
+inline const char* MyString::c_str() const {
     return data;
 }
 
-MyString operator+(const MyString& lhs, const MyString& rhs) {
+inline MyString operator+(const MyString& lhs, const MyString& rhs) {
     MyString result(lhs.len + rhs.len + 1);
-    std::strcpy(result.data, lhs.data);
-    std::strcat(result.data, rhs.data);
+    strcpy_s(result.data, result.len + 1, lhs.data);
+    strcat_s(result.data, result.len + 1, rhs.data);
     return result;
 }
 
-std::istream& operator>>(std::istream& is, MyString& str) {
+inline std::istream& operator>>(std::istream& is, MyString& str) {
     char buffer[1024];
     is >> buffer;
 
     delete[] str.data;
     str.len = std::strlen(buffer);
     str.data = new char[str.len + 1];
-    std::strcpy(str.data, buffer);
+    strcpy_s(str.data, str.len + 1, buffer);
     return is;
 }
 
-std::ostream& operator<<(std::ostream& os, const MyString& str) {
+inline std::ostream& operator<<(std::ostream& os, const MyString& str) {
     return os << str.c_str();
 }
 
-bool operator<(const MyString& lhs, const MyString& rhs) {
-    return std::strcmp(lhs.c_str(), rhs.c_str()) < 0;
+inline bool operator<(const MyString& lhs, const MyString& rhs) {
+    return strcmp(lhs.c_str(), rhs.c_str()) < 0;
 }
 
-bool operator<=(const MyString& lhs, const MyString& rhs) {
-    return std::strcmp(lhs.c_str(), rhs.c_str()) <= 0;
+inline bool operator<=(const MyString& lhs, const MyString& rhs) {
+    return strcmp(lhs.c_str(), rhs.c_str()) <= 0;
 }
 
-bool operator>=(const MyString& lhs, const MyString& rhs) {
-    return std::strcmp(lhs.c_str(), rhs.c_str()) >= 0;
+inline bool operator>=(const MyString& lhs, const MyString& rhs) {
+    return strcmp(lhs.c_str(), rhs.c_str()) >= 0;
 }
 
-bool operator>(const MyString& lhs, const MyString& rhs) {
-    return std::strcmp(lhs.c_str(), rhs.c_str()) > 0;
+inline bool operator>(const MyString& lhs, const MyString& rhs) {
+    return strcmp(lhs.c_str(), rhs.c_str()) > 0;
 }
 
-bool operator==(const MyString& lhs, const MyString& rhs) {
-    return std::strcmp(lhs.c_str(), rhs.c_str()) == 0;
+inline bool operator==(const MyString& lhs, const MyString& rhs) {
+    return strcmp(lhs.c_str(), rhs.c_str()) == 0;
 }
 
-bool operator!=(const MyString& lhs, const MyString& rhs) {
-    return std::strcmp(lhs.c_str(), rhs.c_str()) != 0;
+inline bool operator!=(const MyString& lhs, const MyString& rhs) {
+    return strcmp(lhs.c_str(), rhs.c_str()) != 0;
 }

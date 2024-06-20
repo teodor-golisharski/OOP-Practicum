@@ -2,22 +2,22 @@
 #include "Bank.h"
 #include "User.h"
 #include "BasicVector.hpp"
-
+#include "MyString.hpp"
 
 class Controller final{
 private:
 	BasicVector<Bank> banks;
-	BasicVector<User> users;
+	BasicVector<User*> users;
 	User* current_user = nullptr;
 
 public:
-	/*Controller();
+	Controller();
 
-	Bank& find_bank(const char* bank_name) const;
-	void add_bank(const Bank& bank);
+	//Bank& find_bank(const char* bank_name) const;
+	void create_bank(const MyString& bank_name);
 	
-	void exit();
+	//void exit();
 
 	
-	~Controller();*/
+	~Controller();
 };

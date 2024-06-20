@@ -1,12 +1,10 @@
 #include <iostream>
 #include "BasicVector.hpp"
-#include "Message.h"
-#include "BankRepository.h"
-#include "Bank.h"
+#include "MyString.hpp"
+#include "BankingSystem.h"
 
 int main()
 {
-	
-	
+	run();
 	return 0;
 }
