@@ -18,6 +18,15 @@ bool Controller::is_logged_in() const {
 bool Controller::has_role(UserRole role) const {
 	return current_user && current_user->get_role() == role;
 }
+Bank& Controller::find_bank(const MyString& bank_name) const {
+	for (size_t i = 0; i < banks.size(); i++)
+	{
+		if (banks[i].get_bank_name() == bank_name) {
+			return banks[i];
+		}
+	}
+	throw new std::runtime_error(BANK_NOT_FOUND);
+}
 
 void Controller::free() {
 	delete current_user;
@@ -31,13 +40,6 @@ bool Controller::exit() {
 	return false;
 }
 
-// TO DO:
-UserRole Controller::user_factory(const MyString& role) {
-	if (role == "Client") {
-		return UserRole::client;
-	}
-}
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 void Controller::create_bank(const MyString& bank_name) {
 	Bank bank(bank_name);
@@ -57,7 +59,7 @@ void Controller::signup(const MyString& name, const MyString& egn, const MyStrin
 		std::cin >> bank;
 
 		if (!bank_exists(bank)) {
-			throw new std::invalid_argument("Bank not found!");
+			throw new std::invalid_argument(BANK_NOT_FOUND);
 		}
 		new_user = new Employee(name, egn.c_str(), age, password, bank);
 
@@ -66,7 +68,7 @@ void Controller::signup(const MyString& name, const MyString& egn, const MyStrin
 		new_user = new ThirdPartyEmployee(name, egn.c_str(), age, password);
 	}
 	else {
-		throw new std::invalid_argument("Invalid role specified!");
+		throw new std::invalid_argument(INVALID_ROLE);
 	}
 
 	users.push(new_user);
@@ -77,7 +79,7 @@ void Controller::who_am_i() const {
 
 		current_user->whoami();
 	}
-	throw new std::runtime_error("No user is currently logged in!");
+	throw new std::runtime_error(NO_LOGGED_USER);
 
 }
 void Controller::help() const {
@@ -85,13 +87,13 @@ void Controller::help() const {
 
 		current_user->help();
 	}
-	throw new std::runtime_error("No user is currently logged in!");
+	throw new std::runtime_error(NO_LOGGED_USER);
 
 }
 void Controller::login(const MyString& name, const MyString& password) {
 
 	if (is_logged_in()) {
-		throw new std::runtime_error("User is already logged in!");
+		throw new std::runtime_error(USER_LOGGED_IN);
 	}
 
 	for (size_t i = 0; i < users.size(); i++)
@@ -104,6 +106,25 @@ void Controller::login(const MyString& name, const MyString& password) {
 	}
 }
 
+void Controller::check_avl(const MyString& bank_name, const MyString& account_number) const {
+	
+	if (!bank_exists(bank_name)) {
+		throw std::invalid_argument(BANK_NOT_FOUND);
+	}
+	Client* current = dynamic_cast<Client*>(current_user);
+	double balance = current->find_account(account_number
+		.c_str())
+		.get_balance();
+
+	std::cout << balance << "$" << std::endl;
+}
+void Controller::open(const MyString& bank_name) {
+	if (!bank_exists(bank_name)) {
+		throw std::invalid_argument(BANK_NOT_FOUND);
+	}
+	MyString task_desc = current_user->get_name() + " wants to create an account.";
+	//Task new_task(task_desc, Type::Open, find_bank(bank_name));
+}
 
 Controller::~Controller() {
 	free();

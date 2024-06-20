@@ -54,3 +54,5 @@ UserRole User::get_role() const{
 bool User::check_password(const MyString& pass) const {
 	return this->password == pass;
 }
+
+

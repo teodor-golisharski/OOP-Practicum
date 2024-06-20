@@ -5,6 +5,7 @@
 #include "ThirdPartyEmployee.h"
 #include "BasicVector.hpp"
 #include "MyString.hpp"
+#include "ErrorMessages.h"
 
 class Controller final{
 private:
@@ -13,8 +14,9 @@ private:
 	User* current_user = nullptr;
 
 	void free();
-	UserRole user_factory(const MyString& role);
+	
 	bool bank_exists(const MyString& bank_name) const;
+	Bank& find_bank(const MyString& bank_name) const;
 
 public:
 	Controller();
@@ -28,6 +30,9 @@ public:
 	void who_am_i() const;
 	void help() const;
 	void login(const MyString& name, const MyString& password);
+
+	void check_avl(const MyString& bank_name, const MyString& account_number) const;
+	void open(const MyString& bank_name);
 
 	~Controller();
 };

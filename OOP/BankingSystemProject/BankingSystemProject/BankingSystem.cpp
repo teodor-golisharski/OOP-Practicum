@@ -18,10 +18,15 @@ void run() {
 		} 
 		else if (command == "check_avl" && controller.has_role(UserRole::client)) {
 			MyString bank_name, account_number;
+			std::cin >> bank_name >> account_number;
 
+			controller.check_avl(bank_name, account_number);
 		}
 		else if (command == "open" && controller.has_role(UserRole::client)) {
+			MyString bank_name;
+			std::cin >> bank_name;
 
+			//controller.
 		}
 		else if (command == "close" && controller.has_role(UserRole::client)) {
 

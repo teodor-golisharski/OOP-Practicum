@@ -149,6 +149,7 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="ErrorMessages.h" />
     <ClInclude Include="GlobalConstants.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MyString.hpp" />

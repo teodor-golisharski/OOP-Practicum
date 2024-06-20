@@ -101,5 +101,8 @@
     <ClInclude Include="MyString.hpp">
       <Filter>MyString</Filter>
     </ClInclude>
+    <ClInclude Include="ErrorMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

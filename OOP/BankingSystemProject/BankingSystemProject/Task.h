@@ -1,11 +1,11 @@
 #pragma once
 
 #include "MyString.hpp"
+enum Type { Open, Close, Change };
 
 class Task final {
 private:
 	MyString name;
-	enum Type { Open, Close, Change };
 	Type task_type;
 	unsigned id;
 
