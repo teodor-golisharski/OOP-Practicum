@@ -20,14 +20,13 @@ private:
 	friend class Bank;
 public:
 	Client();
-	Client(const char* name, const char* egn, unsigned age, const char* password);
+	Client(const MyString& name, const char egn[EGN_LENGTH], unsigned age, const MyString& password);
 
 	virtual ~Client();
 
-	// bank repo
-	double check_avl(const char* bank_name, unsigned account_number) const;
-
-	// 
+	double check_avl(const MyString& bank_name, const char* account_number) const;
+	void help() const override;
+	
 	//void redeem(const char* bank_name, unsigned account_number, const char* verification_code);
 	
 	

@@ -134,6 +134,7 @@
     <ClCompile Include="Check.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="ThirdPartyEmployee.cpp" />

@@ -10,64 +10,92 @@ void run() {
 	while (true)
 	{
 		std::cin >> command;
+
 		if (command == "create_bank") {
 			MyString bank_name;
 			std::cin >> bank_name;
 			controller.create_bank(bank_name);
-		}
-		else if (command == "check_avl") {
+		} 
+		else if (command == "check_avl" && controller.has_role(UserRole::client)) {
+			MyString bank_name, account_number;
 
 		}
-		else if (command == "open") {
+		else if (command == "open" && controller.has_role(UserRole::client)) {
 
 		}
-		else if (command == "close") {
+		else if (command == "close" && controller.has_role(UserRole::client)) {
 
 		}
-		else if (command == "redeem") {
+		else if (command == "redeem" && controller.has_role(UserRole::client)) {
 
 		}
-		else if (command == "change") {
+		else if (command == "change" && controller.has_role(UserRole::client)) {
 
 		}
-		else if (command == "list") {
+		else if (command == "list" && controller.has_role(UserRole::client)) {
 
 		}
-		else if (command == "messages") {
+		else if (command == "messages" && controller.has_role(UserRole::client)) {
 
 		}
 		else if (command == "login") {
+			MyString name, password;
+			std::cout << "Name: ";
+			std::cin >> name;
+			std::cout << "\nPassword: ";
+			std::cin >> password;
 
+			controller.login(name, password);
 		}
 		else if (command == "signup") {
 
+			MyString name, egn, role, password;
+			unsigned age;
+			std::cout << "Name: ";
+			std::cin >> name;
+
+			std::cout << "\nEgn: ";
+			std::cin >> egn;
+
+			std::cout << "\nAge: ";
+			std::cin >> age;
+
+			std::cout << "\Role: ";
+			std::cin >> role;
+
+			std::cout << "\nPassword: ";
+			std::cin >> password;
+
+			controller.signup(name, egn, role, password, age);
 		}
-		else if (command == "whoami") {
+		else if (command == "whoami" && controller.is_logged_in()) {
+			controller.who_am_i();
+		}
+		else if (command == "help" && controller.is_logged_in()) {
+			controller.help();
+		}
+		else if (command == "send_check" && controller.has_role(UserRole::thirdPartyEmployee)) {
 
 		}
-		else if (command == "help") {
+		else if (command == "tasks" && controller.has_role(UserRole::employee)) {
 
 		}
-		else if (command == "send_check") {
+		else if (command == "view" && controller.has_role(UserRole::employee)) {
 
 		}
-		else if (command == "tasks") {
+		else if (command == "approve" && controller.has_role(UserRole::employee)) {
 
 		}
-		else if (command == "view") {
+		else if (command == "validate" && controller.has_role(UserRole::employee)) {
 
 		}
-		else if (command == "approve") {
-
-		}
-		else if (command == "validate") {
-
-		}
-		else if (command == "disapprove") {
+		else if (command == "disapprove" && controller.has_role(UserRole::employee)) {
 
 		}
 		else if (command == "exit") {
-
+			if (controller.exit()) {
+				break;
+			}
 		}
 		else {
 			std::cout << "Unrecognized command! Try again!" << std::endl;

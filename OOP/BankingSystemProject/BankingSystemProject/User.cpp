@@ -50,3 +50,7 @@ void User::update_age() {
 UserRole User::get_role() const{
 	return this->role;
 }
+
+bool User::check_password(const MyString& pass) const {
+	return this->password == pass;
+}
