@@ -1,11 +1,18 @@
 #include "Bank.h"
+#include "ErrorMessages.hpp"
 #include <iostream>
 
 Bank::Bank() = default;
 
+unsigned Bank::get_task_index() {
+	return ++last_task_index;
+}
+
+
 Bank::Bank(const MyString& name) {
 	if (name == "")
-		throw std::invalid_argument("Bank name cannot be empty!");
+		throw std::invalid_argument(EMPTY_FIELD);
+		
 	this->name = name;
 }
 
@@ -20,20 +27,17 @@ unsigned Bank::find_account(const char* account_number) const {
 			return i;
 		}
 	}
-	return -1;
+	throw new std::invalid_argument(ACCOUNT_NOT_FOUND);
 }
 
-void Bank::open_account(Client& client) {
-	Account account(this->name);
-	//TO DO: client.add_account(account);
-
-	this->accounts.push(account);
-}
-
-void Bank::close_account(Client& client, const char* account_number) {
-	unsigned index = find_account(account_number);
-	this->accounts.delete_at(index);
-
-	index = client.find_account(account_number);
-	client.accounts.delete_at(index);
+void Bank::assign_task(Task new_task){
+	int min = employees[0].get_task_count();
+	int index = 0;
+	for (unsigned i = 0; i < employees.size(); i++) {
+		if (employees[i].get_task_count() < min) {
+			min = employees[i].get_task_count();
+			index = i;
+		}
+	}
+	employees[index].add_task(new_task);
 }

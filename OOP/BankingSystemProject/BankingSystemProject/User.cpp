@@ -1,5 +1,6 @@
 #include<iostream>
 #include "User.h"
+#include "ErrorMessages.hpp"
 
 User::User() = default;
 User::~User() = default;
@@ -7,7 +8,7 @@ User::~User() = default;
 User::User(const MyString name, const char egn[EGN_LENGTH], unsigned age, const MyString password, UserRole role) {
 
 	if (name == "")
-		throw std::invalid_argument("Name cannot be empty!");
+		throw std::invalid_argument(EMPTY_FIELD);
 	this->name = name;
 
 	if (!egn || strlen(egn) != EGN_LENGTH)
@@ -19,7 +20,7 @@ User::User(const MyString name, const char egn[EGN_LENGTH], unsigned age, const 
 	this->age = age;
 
 	if (password == "")
-		throw std::invalid_argument("Password cannot be null!");
+		throw std::invalid_argument(EMPTY_FIELD);
 	if (password.length() > PASSWORD_MAX_LENGTH)
 		throw std::invalid_argument("Password's maxiumum length is 128 symbols!");
 	this->password = password;

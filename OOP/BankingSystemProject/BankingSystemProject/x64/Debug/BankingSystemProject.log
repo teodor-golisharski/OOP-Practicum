@@ -1,64 +1,29 @@
-﻿  Bank.cpp
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(17,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(91,12): warning C4018: '>=': signed/unsigned mismatch
-  (compiling source file 'Bank.cpp')
-  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(91,12):
+﻿  Controller.cpp
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(8,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(26,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(36,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(126,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(205,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(169,12): warning C4018: '>=': signed/unsigned mismatch
+  (compiling source file 'Controller.cpp')
+  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(169,12):
   the template instantiation context (the oldest one first) is
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.h(13,23):
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.h(10,23):
   	see reference to class template instantiation 'BasicVector<Account>' being compiled
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(90,48):
-  	while compiling class template member function 'void BasicVector<Account>::delete_at(unsigned int)'
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(35,26):
-  		see the first reference to 'BasicVector<Account>::delete_at' in 'Bank::close_account'
-  
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(95,29): warning C4018: '<': signed/unsigned mismatch
-  (compiling source file 'Bank.cpp')
-  
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(105,26): warning C4018: '<': signed/unsigned mismatch
-  (compiling source file 'Bank.cpp')
-  
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(177,12): warning C4018: '>=': signed/unsigned mismatch
-  (compiling source file 'Bank.cpp')
-  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(177,12):
-  the template instantiation context (the oldest one first) is
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(176,53):
-  	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int) const'
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(168,47):
+  	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int)'
           with
           [
               T=Account
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(19,3):
-  		see the first reference to 'BasicVector<Account>::operator []' in 'Bank::find_account'
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(207,21):
+  		see the first reference to 'BasicVector<Account>::operator []' in 'Controller::list'
   
-  BankingSystem.cpp
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BankingSystem.cpp(63,17): warning C4129: 'R': unrecognized character escape sequence
-  Client.cpp
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(7,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(177,12): warning C4018: '>=': signed/unsigned mismatch
-  (compiling source file 'Client.cpp')
-  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(177,12):
-  the template instantiation context (the oldest one first) is
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.h(13,23):
-  	see reference to class template instantiation 'BasicVector<Account>' being compiled
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(176,53):
-  	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int) const'
-          with
-          [
-              T=Account
-          ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(9,3):
-  		see the first reference to 'BasicVector<Account>::operator []' in 'Client::find_account'
-  
-  Controller.cpp
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(9,13): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(99,13): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(100,14): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(101,26): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(177,12): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Controller.cpp')
   C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(177,12):
   the template instantiation context (the oldest one first) is
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.h(11,20):
+  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.h(12,20):
   	see reference to class template instantiation 'BasicVector<Bank>' being compiled
   	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(176,53):
   	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int) const'
@@ -66,27 +31,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
           [
               T=Bank
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(9,3):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(10,3):
   		see the first reference to 'BasicVector<Bank>::operator []' in 'Controller::bank_exists'
   
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(169,12): warning C4018: '>=': signed/unsigned mismatch
-  (compiling source file 'Controller.cpp')
-  C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(169,12):
-  the template instantiation context (the oldest one first) is
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.h(12,21):
-  	see reference to class template instantiation 'BasicVector<User *>' being compiled
-  	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(168,47):
-  	while compiling class template member function 'T &BasicVector<T>::operator [](unsigned int)'
-          with
-          [
-              T=User *
-          ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(99,3):
-  		see the first reference to 'BasicVector<User *>::operator []' in 'Controller::login'
-  
-  Employee.cpp
-  ThirdPartyEmployee.cpp
-  User.cpp
-  Generating Code...
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Controller.cpp(39): warning C4715: 'Controller::user_factory': not all control paths return a value
   BankingSystemProject.vcxproj -> C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\x64\Debug\BankingSystemProject.exe

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "ErrorMessages.hpp"
 #include "GlobalConstants.h"
 #include "MyString.hpp"
 
@@ -10,7 +10,7 @@ private:
 	double balance;
 
 	char generate_random_number(unsigned int& seed);
-
+	
 public:
 	Account();
 	Account(MyString bank_name);
@@ -18,4 +18,6 @@ public:
 	const char* get_account_number() const;
 	const double get_balance() const;
 	const MyString get_bank_name() const;
+	void deposit(double sum);
+	void print() const;
 };

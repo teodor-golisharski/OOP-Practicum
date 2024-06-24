@@ -5,6 +5,10 @@ ThirdPartyEmployee::ThirdPartyEmployee() = default;
 ThirdPartyEmployee::ThirdPartyEmployee(const MyString& name, const char egn[EGN_LENGTH], unsigned age, const MyString& password)
 	: User(name, egn, age, password, UserRole::thirdPartyEmployee) { }
 
+void ThirdPartyEmployee::send_check(double sum, const MyString& bank_name, const char egn[EGN_LENGTH]) {
+
+}
+
 void ThirdPartyEmployee::help() const {
     std::cout << "----------------------------------------------------------------------------\n";
     std::cout << "Third-Party Employee Commands:\n";

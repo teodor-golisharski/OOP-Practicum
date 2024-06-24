@@ -135,7 +135,6 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="ThirdPartyEmployee.cpp" />
     <ClCompile Include="User.cpp" />
@@ -149,9 +148,8 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Employee.h" />
-    <ClInclude Include="ErrorMessages.h" />
+    <ClInclude Include="ErrorMessages.hpp" />
     <ClInclude Include="GlobalConstants.h" />
-    <ClInclude Include="Message.h" />
     <ClInclude Include="MyString.hpp" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="ThirdPartyEmployee.h" />

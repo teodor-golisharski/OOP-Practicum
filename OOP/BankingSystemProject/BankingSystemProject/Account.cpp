@@ -1,12 +1,21 @@
 #include "Account.h"
 #include <iostream>
 #include <ctime>
+#include "Controller.h"
 
 char Account::generate_random_number(unsigned int& seed) {
 	const char charset[] = "0123456789";
 	const size_t max_index = sizeof(charset) - 1;
 	seed = seed * 1103515245 + 12345;
 	return charset[(seed / 65536) % max_index];
+}
+
+void Account::deposit(double sum) {
+	balance += sum;
+}
+
+void Account::print() const {
+	std::cout << " * " + (MyString)account_number << std::endl;
 }
 
 Account::Account() = default;
@@ -21,7 +30,8 @@ Account::Account(MyString bank_name) {
 	}
 
 	if (bank_name == "")
-		throw std::invalid_argument("Bank name cannot be empty!");
+		throw std::invalid_argument(EMPTY_FIELD);
+	
 	this->bank_name = bank_name;
 
 	this->balance = 0;

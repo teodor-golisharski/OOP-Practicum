@@ -80,7 +80,7 @@ void BasicVector<T>::copyFrom(const BasicVector& other) {
 
 	data = new T[other.capacity];
 	for (int i = 0; i < other.current; i++) {
-		data[i] = other.data[i];
+		this->data[i] = other.data[i];
 	}
 	capacity = other.capacity;
 	current = other.current;
