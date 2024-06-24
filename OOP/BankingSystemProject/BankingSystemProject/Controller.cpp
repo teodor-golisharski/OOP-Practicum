@@ -83,7 +83,7 @@ void Controller::signup(const MyString& name, const MyString& egn, const MyStrin
 		std::cin >> bank;
 
 		if (!bank_exists(bank)) {
-			throw new std::invalid_argument(BANK_NOT_FOUND);
+			throw std::invalid_argument(BANK_NOT_FOUND);
 		}
 		new_user = new Employee(name, egn.c_str(), age, password, bank);
 
@@ -92,7 +92,7 @@ void Controller::signup(const MyString& name, const MyString& egn, const MyStrin
 		new_user = new ThirdPartyEmployee(name, egn.c_str(), age, password);
 	}
 	else {
-		throw new std::invalid_argument(INVALID_ROLE);
+		throw std::invalid_argument(INVALID_ROLE);
 	}
 
 	users.push(new_user);
@@ -100,35 +100,37 @@ void Controller::signup(const MyString& name, const MyString& egn, const MyStrin
 // Done
 void Controller::who_am_i() const {
 
-	if (is_logged_in()) {
+	if (!is_logged_in()) {
 
-		current_user->whoami();
+		throw std::runtime_error(NO_LOGGED_USER);
 	}
-	throw new std::runtime_error(NO_LOGGED_USER);
-
+	current_user->whoami();
 }
 // Done
 void Controller::help() const {
-	if (is_logged_in()) {
+	if (!is_logged_in()) {
 
-		current_user->help();
+		throw std::runtime_error(NO_LOGGED_USER);
 	}
-	throw new std::runtime_error(NO_LOGGED_USER);
-
+	current_user->help();
 }
 // Done
 void Controller::login(const MyString& name, const MyString& password) {
 
 	if (is_logged_in()) {
-		throw new std::runtime_error(USER_LOGGED_IN);
+		throw std::runtime_error(USER_LOGGED_IN);
 	}
 
 	for (unsigned i = 0; i < users.size(); i++)
 	{
 		if (users[i]->get_name() == name) {
-			if (users[i]->check_password(password)) {
-				current_user = users[i];
+			if (!users[i]->check_password(password)) {
+				throw std::invalid_argument(INVALID_PASSWORD);
 			}
+			current_user = users[i];
+		}
+		else {
+			throw std::runtime_error(UNSUCCESSFUL_LOGIN);
 		}
 	}
 }
@@ -182,9 +184,9 @@ void Controller::change(const MyString& new_bank_name, const MyString& current_b
 
 	if (new_bank_exists && current_bank_exists) {
 		MyString task_desc = current_user->get_name() + " wants to join " + new_bank_name + ".";
-		
+
 		Bank bank = find_bank(current_bank_name);
-		
+
 		Task new_task(task_desc, Type::Change, bank.get_task_index(), current_user, new_bank_name);
 		bank.assign_task(new_task);
 	}
@@ -262,10 +264,10 @@ void Controller::approve(unsigned id) {
 
 	Task task = current->find_task_by_id(id);
 	User* client_user = find_user_by_egn(task.get_user_egn());
-	
+
 	Client* client = dynamic_cast<Client*>(client_user);
-	
-	
+
+
 	switch (task.get_task_type())
 	{
 	case Open:
@@ -289,7 +291,7 @@ void Controller::disapprove(unsigned id, const MyString& message) {
 	Task task = current->find_task_by_id(id);
 
 	MyString final_message = "Your " + task.convert_type_to_string() + "request was not approved. Reason: " + message;
-	
+
 	User* client_user = find_user_by_egn(task.get_user_egn());
 	Client* client = dynamic_cast<Client*>(client_user);
 

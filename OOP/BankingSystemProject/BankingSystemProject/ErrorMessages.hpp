@@ -17,4 +17,5 @@ const char* const USER_IS_NOT_CLIENT = "User must be client!";
 const char* const NO_ACCESS = "Access denied!";
 const char* const NO_TASKS_AVAILABLE = "No tasks assigned.";
 const char* const COMMAND_NOT_RECOGNIZED = "Command was not recognized!";
-
+const char* const INVALID_PASSWORD = "Invalid password!";
+const char* const UNSUCCESSFUL_LOGIN = "Unsuccessful login. Please check your credentials and try again.";
