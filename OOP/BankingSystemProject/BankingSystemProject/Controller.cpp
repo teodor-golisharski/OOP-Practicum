@@ -43,6 +43,7 @@ User* Controller::find_user_by_egn(const MyString& egn) const {
 }
 
 
+
 // Done
 void Controller::free() {
 	delete current_user;
@@ -88,7 +89,7 @@ void Controller::signup(const MyString& name, const MyString& egn, const MyStrin
 		new_user = new Employee(name, egn.c_str(), age, password, bank);
 
 	}
-	else if (role == "ThirdPartyEmployee") {
+	else if (role == "Third-party") {
 		new_user = new ThirdPartyEmployee(name, egn.c_str(), age, password);
 	}
 	else {
@@ -128,11 +129,10 @@ void Controller::login(const MyString& name, const MyString& password) {
 				throw std::invalid_argument(INVALID_PASSWORD);
 			}
 			current_user = users[i];
-		}
-		else {
-			throw std::runtime_error(UNSUCCESSFUL_LOGIN);
+			return;
 		}
 	}
+	throw std::runtime_error(UNSUCCESSFUL_LOGIN);
 }
 // Done
 void Controller::check_avl(const MyString& bank_name, const MyString& account_number) const {
@@ -187,7 +187,7 @@ void Controller::change(const MyString& new_bank_name, const MyString& current_b
 
 		Bank bank = find_bank(current_bank_name);
 
-		Task new_task(task_desc, Type::Change, bank.get_task_index(), current_user, new_bank_name);
+		Task new_task(task_desc, Type::Change, bank.get_task_index(), current_user, new_bank_name, account_number);
 		bank.assign_task(new_task);
 	}
 
@@ -255,34 +255,53 @@ void Controller::view(unsigned id) const {
 	Task task = current->find_task_by_id(id);
 	task.print();
 }
-
+// In progress
 void Controller::approve(unsigned id) {
 	if (!has_role(UserRole::employee)) {
 		throw std::runtime_error(NO_ACCESS);
 	}
 	Employee* current = dynamic_cast<Employee*>(current_user);
-
 	Task task = current->find_task_by_id(id);
-	User* client_user = find_user_by_egn(task.get_user_egn());
 
+	User* client_user = find_user_by_egn(task.get_user_egn());
 	Client* client = dynamic_cast<Client*>(client_user);
 
-
+	Bank& bank = find_bank(task.get_bank_name());
 	switch (task.get_task_type())
 	{
-	case Open:
-		// Call OpenAccount() logic
-	case Close:
-		// Call CloseAccount() logic
-	case Change:
-		// assume data is validated beforehand
-		// Call Change logic
-	default:
+	case Open: {
+		MyString account_number = bank.open_account(*client, 0);
+		client->receive_message("You opened an account in " + bank.get_bank_name() + "! Your account id is " + account_number + ".");
 		break;
 	}
-	//.delete_at(index);
-}
+	case Close: {
 
+		bank.close_account(*client, task.get_account_number().c_str());
+		client->receive_message("You closed an account in " + bank.get_bank_name() + " with id " + task.get_account_number() + ".");
+		break;
+	}
+	case Change: {
+		if (!task.get_validation_status()) {
+			MyString error_message = "Cannot proceed - please make sure " + client->get_name() + " is real user by asking the bank!";
+			throw std::runtime_error(error_message.c_str());
+		}
+		Account& acc = client->find_account(task.get_account_number().c_str());
+		Bank& current_bank = find_bank(acc.get_bank_name());
+
+		double current_balance = acc.get_balance();
+
+		MyString accountNumber = bank.open_account(*client, current_balance);
+		current_bank.close_account(*client, acc.get_account_number());
+		client->receive_message("Your account has been successfully transferred to " + bank.get_bank_name() + ".");
+		break;
+	}
+
+	default:
+		throw std::runtime_error(INVALID_TASK_TYPE);
+	}
+	current->approve(id);
+}
+// Done
 void Controller::disapprove(unsigned id, const MyString& message) {
 	if (!has_role(UserRole::employee)) {
 		throw std::runtime_error(NO_ACCESS);
@@ -298,6 +317,25 @@ void Controller::disapprove(unsigned id, const MyString& message) {
 	client->receive_message(final_message);
 
 	current->disapprove(id);
+}
+// Done
+void Controller::validate(unsigned id) {
+	if (!has_role(UserRole::employee)) {
+		throw std::runtime_error(NO_ACCESS);
+	}
+	Employee* current = dynamic_cast<Employee*>(current_user);
+	Task task = current->find_task_by_id(id);
+
+	if (task.get_task_type() != Change) {
+		throw std::invalid_argument("Only Change tasks can be validated.");
+	}
+
+	User* client_user = find_user_by_egn(task.get_user_egn());
+	Client* client = dynamic_cast<Client*>(client_user);
+
+	if (client->has_account(task.get_account_number())) {
+		task.validate_task();
+	}
 }
 
 

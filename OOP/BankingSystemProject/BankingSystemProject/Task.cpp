@@ -6,8 +6,9 @@
 
 Task::Task() = default;
 
-Task::Task(const MyString& name, const Type& task_type, unsigned id, const User* user, const MyString& new_bank) : Task(name, task_type, id, user) {
+Task::Task(const MyString& name, const Type& task_type, unsigned id, const User* user, const MyString& new_bank, const MyString& account_number) : Task(name, task_type, id, user) {
 	this->new_bank = new_bank;
+	this->account_number = account_number;
 }
 
 Task::Task(const MyString& name, const Type& task_type, unsigned id, const User* user) {
@@ -26,6 +27,9 @@ Task::Task(const MyString& name, const Type& task_type, unsigned id, const User*
 	this->user_name = user->get_name();
 	this->user_egn = user->get_egn();
 	this->user_age = user->get_age();
+
+	new_bank = "";
+	account_number = "";
 }
 
 const MyString& Task::get_task_name() const {
@@ -70,4 +74,19 @@ const MyString& Task::get_user_egn() const {
 }
 unsigned Task::get_user_age() const {
 	return this->user_age;
+}
+
+const MyString& Task::get_bank_name() const {
+	return this->new_bank;
+}
+
+const MyString& Task::get_account_number() const {
+	return this->account_number;
+}
+
+bool Task::get_validation_status() const {
+	return this->validated;
+}
+void Task::validate_task() {
+	this->validated = true;
 }

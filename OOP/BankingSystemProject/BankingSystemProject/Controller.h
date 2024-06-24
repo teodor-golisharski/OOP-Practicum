@@ -18,7 +18,6 @@ private:
 	bool bank_exists(const MyString& bank_name) const;
 	Bank& find_bank(const MyString& bank_name) const;
 	User* find_user_by_egn(const MyString& egn) const;
-
 	
 public:
 	Controller();
@@ -47,6 +46,7 @@ public:
 	void view(unsigned id) const;
 	void approve(unsigned id);
 	void disapprove(unsigned id, const MyString& message);
+	void validate(unsigned id);
 
 	~Controller();
 };

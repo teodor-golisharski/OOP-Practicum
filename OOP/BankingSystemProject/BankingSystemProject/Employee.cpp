@@ -50,25 +50,12 @@ void Employee::view(unsigned task_id) const {
 		std::cout << "Employee " << this->get_name() << " has no pending task with this id." << std::endl;
 }
 
-// useless
 void Employee::approve(unsigned task_id) {
 
 	int index = find_task(task_id);
 	if (index == -1)
 		throw std::invalid_argument(TASK_NOT_FOUND);
 
-	switch (tasks_pending[index].get_task_type())
-	{
-	case Open:
-		// Call OpenAccount() logic
-	case Close:
-		// Call CloseAccount() logic
-	case Change:
-		// assume data is validated beforehand
-		// Call Change logic
-	default:
-		break;
-	}
 	tasks_pending.delete_at(index);
 }
 
@@ -96,5 +83,9 @@ Task& Employee::find_task_by_id(unsigned id) const {
 		throw std::invalid_argument(TASK_NOT_FOUND);
 	}
 	return tasks_pending[find_task(id)];
-
 }
+
+const MyString Employee::get_bank_name() const {
+	return this->bank_name;
+}
+

@@ -49,6 +49,13 @@ void BasicVector<T>::moveFrom(BasicVector&& other) {
 
 template<class T>
 void BasicVector<T>::free() {
+	if constexpr (std::is_pointer_v<T>) {
+		for (size_t i = 0; i < current; i++)
+		{
+			delete data[i];
+		}
+	}
+	
 	delete[] data;
 	data = nullptr;
 }

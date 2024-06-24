@@ -93,3 +93,12 @@ void Client::receive_check(const Check& check) {
 void Client::receive_message(const MyString& message) {
 	messages.push(message);
 }
+bool Client::has_account(const MyString& account_number) const {
+	for (unsigned i = 0; i < accounts.size(); i++)
+	{
+		if (accounts[i].get_account_number() == account_number) {
+			return true;
+		}
+	}
+	return false;
+}
