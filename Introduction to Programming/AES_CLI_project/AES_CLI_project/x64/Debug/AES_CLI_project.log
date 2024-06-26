@@ -1,3 +1,0 @@
-﻿  AES_CLI_project.cpp
-C:\Users\tgoli\source\repos\AES_CLI_project\AES_CLI_project\AES_CLI_project.cpp(231,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  AES_CLI_project.vcxproj -> C:\Users\tgoli\source\repos\AES_CLI_project\x64\Debug\AES_CLI_project.exe
