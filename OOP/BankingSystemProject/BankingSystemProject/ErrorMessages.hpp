@@ -23,3 +23,4 @@ const char* const BANK_NOT_OPERATING = "Bank is unavailable at the moment.";
 const char* const UNSUCCESSFUL_LOGIN = "Unsuccessful login. Please check your credentials and try again.";
 const char* const WRONG_VERIFICATION = "Wrong verification code!";
 const char* const VALIDATION_ERROR = "Only Change tasks can be validated.";
+const char* const EGN_ERROR = "Egn is digits only!";

@@ -13,6 +13,12 @@ User::User(const MyString name, const char egn[EGN_LENGTH], unsigned age, const 
 
 	if (!egn || strlen(egn) != EGN_LENGTH)
 		throw std::invalid_argument("Egn must be exactly 10 digits!");
+	for (size_t i = 0; i < EGN_LENGTH; i++)
+	{
+		if (egn[i] < '0' || egn[i]> '9') {
+			throw std::invalid_argument(EGN_ERROR);
+		}
+	}
 	strcpy_s(this->egn, EGN_LENGTH + 1, egn);
 
 	if (age < 14)

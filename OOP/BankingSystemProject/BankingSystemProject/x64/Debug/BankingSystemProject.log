@@ -6,12 +6,12 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(55,3): warning C4984: 'if constexpr' is a C++17 language extension
   (compiling source file 'Bank.cpp')
   
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(28,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(40,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(79,30): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(80,37): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(88,17): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(89,21): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(18,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(49,30): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(50,37): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(57,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(75,17): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(76,21): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(110,12): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Bank.cpp')
   C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(110,12):
@@ -20,7 +20,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
   	see reference to class template instantiation 'BasicVector<Task>' being compiled
   	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(109,48):
   	while compiling class template member function 'void BasicVector<Task>::delete_at(unsigned int)'
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(80,36):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(50,36):
   		see the first reference to 'BasicVector<Task>::delete_at' in 'Bank::delete_task'
   
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(114,29): warning C4018: '<': signed/unsigned mismatch
@@ -39,7 +39,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
           [
               T=Task
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(79,3):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(49,3):
   		see the first reference to 'BasicVector<Task>::operator []' in 'Bank::delete_task'
   
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(196,12): warning C4018: '>=': signed/unsigned mismatch
@@ -52,12 +52,16 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
           [
               T=Account
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(30,3):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(20,3):
   		see the first reference to 'BasicVector<Account>::operator []' in 'Bank::find_account'
   
   BankingSystem.cpp
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(55,3): warning C4984: 'if constexpr' is a C++17 language extension
   (compiling source file 'BankingSystem.cpp')
+  
+  BankingSystemProject.cpp
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(55,3): warning C4984: 'if constexpr' is a C++17 language extension
+  (compiling source file 'BankingSystemProject.cpp')
   
   Check.cpp
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(55,3): warning C4984: 'if constexpr' is a C++17 language extension
@@ -99,13 +103,13 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(55,3): warning C4984: 'if constexpr' is a C++17 language extension
   (compiling source file 'Client.cpp')
   
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(16,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(37,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(63,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(75,12): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(95,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(110,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(124,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(14,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(34,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(60,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(72,12): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(93,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(102,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(121,26): warning C4018: '<': signed/unsigned mismatch
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(196,12): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Client.cpp')
   C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(196,12):
@@ -118,7 +122,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
           [
               T=MyString
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(76,3):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(73,3):
   		see the first reference to 'BasicVector<MyString>::operator []' in 'Client::get_message_at_index'
   
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(110,12): warning C4018: '>=': signed/unsigned mismatch
@@ -129,7 +133,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
   	see reference to class template instantiation 'BasicVector<Account>' being compiled
   	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(109,48):
   	while compiling class template member function 'void BasicVector<Account>::delete_at(unsigned int)'
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(11,26):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(9,26):
   		see the first reference to 'BasicVector<Account>::delete_at' in 'Client::remove_account'
   
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(114,29): warning C4018: '<': signed/unsigned mismatch
@@ -148,7 +152,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
           [
               T=Account
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(97,3):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(95,3):
   		see the first reference to 'BasicVector<Account>::operator []' in 'Client::has_accounts_in_bank'
   
   Controller.cpp
@@ -194,9 +198,9 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(55,3): warning C4984: 'if constexpr' is a C++17 language extension
   (compiling source file 'Employee.cpp')
   
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(8,21): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(9,11): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(38,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(16,21): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(17,11): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(36,26): warning C4018: '<': signed/unsigned mismatch
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(110,12): warning C4018: '>=': signed/unsigned mismatch
   (compiling source file 'Employee.cpp')
   C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(110,12):
@@ -205,7 +209,7 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
   	see reference to class template instantiation 'BasicVector<Task>' being compiled
   	C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(109,48):
   	while compiling class template member function 'void BasicVector<Task>::delete_at(unsigned int)'
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(61,25):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(57,25):
   		see the first reference to 'BasicVector<Task>::delete_at' in 'Employee::approve'
   
 C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\BasicVector.hpp(114,29): warning C4018: '<': signed/unsigned mismatch
@@ -224,10 +228,12 @@ C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProjec
           [
               T=Task
           ]
-  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(8,3):
+  		C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Employee.cpp(16,3):
   		see the first reference to 'BasicVector<Task>::operator []' in 'Employee::find_task'
   
+  Task.cpp
+  User.cpp
   Generating Code...
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(78): warning C4715: 'Client::get_message_at_index': not all control paths return a value
-C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(92): warning C4715: 'Bank::get_employee': not all control paths return a value
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Client.cpp(75): warning C4715: 'Client::get_message_at_index': not all control paths return a value
+C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\BankingSystemProject\Bank.cpp(79): warning C4715: 'Bank::get_employee': not all control paths return a value
   BankingSystemProject.vcxproj -> C:\Users\tgoli\Documents\GitHub\FMI\OOP\BankingSystemProject\x64\Debug\BankingSystemProject.exe
