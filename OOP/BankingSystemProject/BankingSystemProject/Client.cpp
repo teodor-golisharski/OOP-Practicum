@@ -10,33 +10,43 @@ void Client::remove_account(const char* accountNumber) {
 }
 void Client::redeem_check(const char* verification_code, Account& account) {
 	unsigned index = 0;
+	bool flag = false;
 	for (unsigned i = 0; i < checks.size(); i++)
 	{
-		if (strcmp(checks[i].get_code(), verification_code)) {
+		if (strcmp(checks[i].get_code(), verification_code) == 0) {
+
 			account.deposit(checks[i].get_tansaction_sum());
 			index = i;
+			flag = true;
 			break;
 		}
 	}
-	checks.delete_at(index);
+	if (flag) {
+		checks.delete_at(index);
+	}
+	else {
+		throw std::runtime_error(WRONG_VERIFICATION);
+	}
 }
 
 unsigned Client::find_account_index(const char* account_number) const {
 
 	for (unsigned i = 0; i < accounts.size(); i++)
 	{
-		if (accounts[i].get_account_number() == account_number) {
+		if (strcmp(accounts[i].get_account_number(), account_number) == 0) {
 			return i;
 		}
 	}
-	throw std::invalid_argument("Account not found!");
+	return -1;
 
 }
 Account& Client::find_account(const char* account_number) const {
 
 	unsigned index = find_account_index(account_number);
-	return accounts[index];
-
+	if (index != -1) {
+		return accounts[index];
+	}
+	throw std::invalid_argument(ACCOUNT_NOT_FOUND);
 }
 
 Client::~Client() = default;
@@ -63,6 +73,7 @@ MyString Client::get_message_at_index(unsigned index) const {
 		return messages[index];
 	}
 }
+
 void Client::help() const {
 	std::cout << "----------------------------------------------------------------------------\n";
 	std::cout << "Client commands:\n";
@@ -87,12 +98,6 @@ bool Client::has_accounts_in_bank(const MyString& bank_name) {
 	}
 	return false;
 }
-void Client::receive_check(const Check& check) {
-	checks.push(check);
-}
-void Client::receive_message(const MyString& message) {
-	messages.push(message);
-}
 bool Client::has_account(const MyString& account_number) const {
 	for (unsigned i = 0; i < accounts.size(); i++)
 	{
@@ -102,3 +107,21 @@ bool Client::has_account(const MyString& account_number) const {
 	}
 	return false;
 }
+
+void Client::receive_check(const Check& check) {
+	checks.push(check);
+}
+void Client::receive_message(const MyString& message) {
+	messages.push(message);
+}
+
+void Client::transfer_checks(const MyString& old_bank, const MyString& new_bank) {
+	
+	if (!has_accounts_in_bank(old_bank)) {
+		for (unsigned i = 0; i < checks.size(); i++)
+		{
+			checks[i].set_bank_name(new_bank);
+		}
+	}
+}
+

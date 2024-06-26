@@ -35,19 +35,15 @@ void User::whoami() const {
 const MyString User::get_name() const {
 	return this->name;
 }
-
 const MyString User::get_egn() const {
 	return this->egn;
 }
-
 unsigned User::get_age() const {
 	return this->age;
 }
-
 void User::update_age() {
 	this->age++;
 }
-
 UserRole User::get_role() const{
 	return this->role;
 }

@@ -18,14 +18,18 @@ public:
 	Bank();
 	Bank(const MyString&name);
 
+	void assign_task(Task& new_task);
 	unsigned get_task_index();
 
 	const MyString& get_bank_name() const;
 
-	const MyString& open_account(Client& client, double sum);
+	const char* open_account(Client& client, double sum);
 	void close_account(Client& client, const char* account_number);
 
+	Employee& get_employee(const MyString& egn) const;
+
+	void add_employee(const Employee& employee);
+	unsigned get_employees_count() const;
 	void delete_task(unsigned id, Employee& employee);
 
-	void assign_task(Task new_task);
 };

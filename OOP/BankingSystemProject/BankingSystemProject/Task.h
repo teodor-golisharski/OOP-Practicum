@@ -1,25 +1,27 @@
 #pragma once
 #include "User.h"
 #include "MyString.hpp"
-enum Type { Open, Close, Change };
+enum Type { def, Open, Close, Change };
 
 class Task final {
 private:
 	MyString name;
 	Type task_type;
-	unsigned id = 0;
+	unsigned id;
 
 	MyString user_name;
 	MyString user_egn;
-	unsigned user_age = 0;
+	unsigned user_age;
+
 	MyString new_bank;
 	MyString account_number;
 
-	bool validated = false;
+	bool validated;
 
 public:
 	Task();
 	Task(const MyString& name, const Type& task_type, unsigned id, const User* user);
+	Task(const MyString& name, const Type& task_type, unsigned id, const User* user, const MyString& account_number);
 	Task(const MyString& name, const Type& task_type, unsigned id, const User* user, const MyString& new_bank, const MyString& account_number);
 
 	const MyString& get_task_name() const;
@@ -32,7 +34,7 @@ public:
 	unsigned get_user_age() const;
 	const MyString& get_bank_name() const;
 	const MyString& get_account_number() const;
-	const MyString& convert_type_to_string() const;
+	const MyString convert_type_to_string() const;
 	
 	bool get_validation_status() const;
 	void validate_task();

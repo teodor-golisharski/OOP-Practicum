@@ -9,13 +9,12 @@ private:
 	MyString bank_name;
 
 	int find_task(unsigned task_id) const;
-	void finish_task(Task& task);
 
 	friend class Bank;
 public:
 	Employee();
 	Employee(const MyString& name, const char egn[EGN_LENGTH], unsigned age, const MyString& password, const MyString& bank);
-	
+
 	void help() const override;
 
 	void tasks() const;
@@ -24,9 +23,10 @@ public:
 	void disapprove(unsigned task_id);
 
 	const int get_task_count() const;
-	void add_task(Task new_task);
+	void add_task(const Task& new_task);
 	const MyString get_bank_name() const;
 	Task& find_task_by_id(unsigned id) const;
+
 
 	virtual ~Employee();
 };

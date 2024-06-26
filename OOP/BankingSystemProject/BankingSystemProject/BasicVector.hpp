@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 
+#pragma optimize("", off)
 template<typename T>
 class BasicVector {
 
@@ -31,6 +32,7 @@ public:
 	void delete_at(unsigned index);
 	int size() const;
 	int get_capacity() const;
+	void clear();
 
 	T& operator[](unsigned index);
 	T& operator[](unsigned index) const;
@@ -49,15 +51,25 @@ void BasicVector<T>::moveFrom(BasicVector&& other) {
 
 template<class T>
 void BasicVector<T>::free() {
-	if constexpr (std::is_pointer_v<T>) {
-		for (size_t i = 0; i < current; i++)
-		{
-			delete data[i];
+	if (data != nullptr) {
+		if constexpr (std::is_pointer_v<T>) {
+			for (size_t i = 0; i < current; i++) {
+				delete data[i];
+			}
 		}
+		delete[] data;
+		data = nullptr;
 	}
-	
-	delete[] data;
-	data = nullptr;
+	current = 0;
+	capacity = 0;
+}
+
+template<class T>
+void BasicVector<T>::clear() {
+	free();
+	data = new T[1];
+	capacity = 1;
+	current = 0;
 }
 
 template<class T>
@@ -87,7 +99,7 @@ void BasicVector<T>::copyFrom(const BasicVector& other) {
 
 	data = new T[other.capacity];
 	for (int i = 0; i < other.current; i++) {
-		this->data[i] = other.data[i];
+		data[i] = other.data[i];
 	}
 	capacity = other.capacity;
 	current = other.current;
@@ -205,5 +217,6 @@ BasicVector<T>& BasicVector<T>::operator=(BasicVector&& other) noexcept{
 	return *this;
 }
 
+#pragma optimize("", on)
 
 

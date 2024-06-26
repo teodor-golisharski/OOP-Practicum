@@ -6,7 +6,7 @@
 
 class Check final {
 private:
-	char code[CODE_LENGTH];
+	char code[CODE_LENGTH + 1];
 	double transaction_sum;
 	MyString bank_name;
 	char egn[EGN_LENGTH + 1];
@@ -27,6 +27,7 @@ public:
 	const MyString get_bank_name() const;
 	const char* get_egn() const;
 	const char* get_code() const;
+	void set_bank_name(const MyString& bank_name);
 
 	~Check();
 };

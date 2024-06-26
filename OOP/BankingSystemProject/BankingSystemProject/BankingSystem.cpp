@@ -53,7 +53,7 @@ void run() {
 					MyString new_bank_name, current_bank_name, account_number;
 					std::cin >> new_bank_name >> current_bank_name >> account_number;
 
-					controller.redeem(new_bank_name, current_bank_name, account_number.c_str());
+					controller.change(new_bank_name, current_bank_name, account_number.c_str());
 				}
 				else if (command == "list") {
 					MyString bank_name;
@@ -87,18 +87,27 @@ void run() {
 					controller.view(id);
 				}
 				else if (command == "approve") {
+					unsigned id;
+					std::cin >> id;
 
+					controller.approve(id);
 				}
 				else if (command == "validate") {
+					unsigned id;
+					std::cin >> id;
 
+					controller.validate(id);
 				}
 				else if (command == "disapprove") {
 					unsigned id;
-					MyString message;
+					char message[1024];
 
-					std::cin >> id >> message;
+					std::cin >> id;
+					std::cin.getline(message, 1024);
 
-					controller.disapprove(id, message);
+					MyString msg = message;
+
+					controller.disapprove(id, msg);
 				}
 				else std::cout << COMMAND_NOT_RECOGNIZED << std::endl;
 			}
@@ -142,7 +151,7 @@ void run() {
 			}
 		}
 		catch (const std::invalid_argument& er) {
-			std::cout << er.what()<<std::endl;
+			std::cout << er.what() << std::endl;
 		}
 		catch (const std::runtime_error& er) {
 			std::cout << er.what() << std::endl;

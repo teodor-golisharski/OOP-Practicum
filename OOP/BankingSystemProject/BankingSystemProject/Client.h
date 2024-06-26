@@ -22,6 +22,9 @@ public:
 
 	void redeem_check(const char* verification_code, Account& account);
 	void receive_check(const Check& check);
+
+
+
 	void help() const override;
 	
 	unsigned find_account_index(const char* account_number) const;
@@ -33,4 +36,6 @@ public:
 	unsigned get_messages_count() const;
 	MyString get_message_at_index(unsigned index) const;
 	void receive_message(const MyString& message);
+
+	void transfer_checks(const MyString& old_bank, const MyString& new_bank);
 };

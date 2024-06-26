@@ -51,11 +51,17 @@ public:
 inline void MyString::copyFrom(const MyString& other) {
     len = other.len;
     data = new char[len + 1];
-    strcpy_s(data, len + 1, other.data);
+    if (other.data) {
+        strcpy_s(data, len + 1, other.data); 
+    }
+    else {
+        data[0] = '\0';
+    }
 }
 
 inline void MyString::free() {
     delete[] data;
+    data = nullptr;
 }
 
 inline MyString::MyString() : MyString(1) {

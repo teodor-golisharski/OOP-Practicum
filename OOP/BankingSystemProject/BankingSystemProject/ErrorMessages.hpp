@@ -3,6 +3,7 @@
 
 const char* const BANK_NOT_FOUND = "Bank not found!";
 const char* const ACCOUNT_NOT_FOUND = "Account not found!";
+const char* const USER_NOT_FOUND = "User with the given egn is not found!";
 const char* const NO_ACCOUNTS = "No accounts found!";
 const char* const BANK_EXISTS = "Bank already exists!";
 const char* const INVALID_ROLE = "Invalid role specified!";
@@ -18,4 +19,7 @@ const char* const NO_ACCESS = "Access denied!";
 const char* const NO_TASKS_AVAILABLE = "No tasks assigned.";
 const char* const COMMAND_NOT_RECOGNIZED = "Command was not recognized!";
 const char* const INVALID_PASSWORD = "Invalid password!";
+const char* const BANK_NOT_OPERATING = "Bank is unavailable at the moment.";
 const char* const UNSUCCESSFUL_LOGIN = "Unsuccessful login. Please check your credentials and try again.";
+const char* const WRONG_VERIFICATION = "Wrong verification code!";
+const char* const VALIDATION_ERROR = "Only Change tasks can be validated.";

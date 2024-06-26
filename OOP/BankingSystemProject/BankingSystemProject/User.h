@@ -8,7 +8,7 @@ class User {
 private:
 	MyString name;
 	char egn[EGN_LENGTH + 1];
-	unsigned age;
+	unsigned age = 0;
 	MyString password;
 	UserRole role = UserRole::DEF;
 
