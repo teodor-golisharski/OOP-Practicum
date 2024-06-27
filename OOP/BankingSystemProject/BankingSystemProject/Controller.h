@@ -21,6 +21,7 @@ private:
 	
 public:
 	Controller();
+	Controller(const BasicVector<Bank>& banks, const BasicVector<User*>& users);
 
 	bool is_logged_in() const;
 	bool has_role(UserRole role) const;

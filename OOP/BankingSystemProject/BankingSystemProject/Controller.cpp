@@ -1,6 +1,11 @@
 #include "Controller.h"
 
 Controller::Controller() : current_user(nullptr) {}
+Controller::Controller(const BasicVector<Bank>& banks, const BasicVector<User*>& users) : Controller() {
+	this->banks = banks;
+	this->users = users;
+}
+
 
 bool Controller::bank_exists(const MyString& bank_name) const {
 
