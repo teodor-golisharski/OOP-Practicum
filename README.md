@@ -2,6 +2,10 @@
 Banking System is a university project for the Object Oriented Programming practical course. 
 This application is designed to manage a simple banking system, allowing for user management, account handling, and task management for employees.
 
+## Contributors
+* github.com/teodor-golisharski
+* github.com/Martin-Ivanov-13
+
 ## Features
 * User Management: Create and manage clients and employees.
 * Account Management: Open, close, and view bank accounts.
