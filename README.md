@@ -34,7 +34,7 @@ This application is designed to manage a simple banking system, allowing for use
     signup <name> <egn> <age> <role = Employee> <password> <bank name>
     ```
     
-- **Signup an Third-party employee**:
+- **Signup a Third-party employee**:
     ```
     signup <name> <egn> <age> <role = Third-part> <password>
     ```
